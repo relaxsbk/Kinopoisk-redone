@@ -4,6 +4,7 @@
 //    На каждое добавление класс с функционалом, нудно прикрепить.
     require_once APP_PATH . '/src/App.php';
     require_once APP_PATH . '/src/Router/Router.php';
+    require_once APP_PATH . '/src/Router/Route.php';
 
     use src\App;
 

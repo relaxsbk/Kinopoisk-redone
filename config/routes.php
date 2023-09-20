@@ -1,9 +1,12 @@
 <?php
+use src\Router\Route;
+
+
     return [
-        '/home' => function() {
-           include_once APP_PATH . '/views/pages/home.php';
-        },
-        '/movies' => function() {
+        Route::get('/home', function() {
+            include_once APP_PATH . '/views/pages/home.php';
+        }),
+        Route::get('/movies', function() {
             include_once APP_PATH . '/views/pages/movies.php';
-        },
+        }),
     ];

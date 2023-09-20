@@ -2,14 +2,62 @@
 
 namespace src\Router;
 
+use src\Router\Route;
+
 class Router
 {
-    public function dispatch(string $uri): void
+    private array $routes = [
+        'GET' => [],
+        'POST' => [],
+    ];
+
+    public function __construct()
     {
-        $routes = $this->getRoutes();
-        $routes[$uri]();
+        $this->initRoutes();
     }
 
+
+    public function dispatch(string $uri, string $method): void
+    {
+        $route = $this->findRoute($uri, $method);
+
+        if (!$route) {
+           $this->notFound();
+        }
+
+        $route->getAction()(); // будет переделано
+//        $routes = $this->getRoutes();
+//        $routes[$uri](); 44 30
+    }
+
+    private function notFound(): void
+    {
+        echo '404 | Not Found';
+        exit;
+    }
+
+    private function findRoute(string $uri, string $method): Route|false
+    {
+        if (!isset($this->routes[$method][$uri])) {
+            return false;
+        }
+
+        return $this->routes[$method][$uri];
+    }
+
+
+    private function initRoutes(): void
+    {
+        $routes = $this->getRoutes();
+
+        foreach ($routes as $route) {
+            $this->routes[$route->getMethod()][$route->getUri()] = $route;
+        }
+    }
+
+    /**
+    * @return Route[]
+    */
     public function getRoutes(): array
     {
         return require_once APP_PATH . '/config/routes.php';

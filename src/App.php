@@ -9,8 +9,11 @@ class App
     public function run(): void
     {
         $router = new Router();
+
         $uri = $_SERVER['REQUEST_URI'];
-        $router->dispatch($uri);
+        $method = $_SERVER['REQUEST_METHOD'];
+
+        $router->dispatch($uri, $method);
 
     }
 }
