@@ -6,6 +6,13 @@
     require_once APP_PATH . '/src/Router/Router.php';
     require_once APP_PATH . '/src/Router/Route.php';
 
+    require_once APP_PATH . '/src/Controllers/HomeController.php';
+    require_once APP_PATH . '/src/Controllers/MovieController.php';
+
+    require_once APP_PATH . '/src/Http/Request.php';
+
+
+
     use src\App;
 
 
