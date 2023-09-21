@@ -1,8 +1,6 @@
 <?php
 
-namespace src\Router;
-
-use src\Router\Route;
+namespace Kernel\Router;
 
 class Router
 {
