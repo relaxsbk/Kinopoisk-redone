@@ -7,6 +7,9 @@ use Kernel\View\View;
 
 class HomeController extends Controller
 {
+    /**
+     * @throws \Exception
+     */
     public function index(): void
     {
         $view = new View();
