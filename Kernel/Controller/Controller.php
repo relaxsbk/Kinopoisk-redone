@@ -2,11 +2,14 @@
 
 namespace Kernel\Controller;
 
+use Kernel\Http\Request;
 use Kernel\View\View;
 
 abstract class Controller
 {
     private View $view;
+
+    private Request $request;
 
     public function view(string $name): void
     {
@@ -18,4 +21,14 @@ abstract class Controller
     {
         $this->view = $view;
     }
+
+    public function request(): Request
+    {
+        return $this->request;
+    }
+    public function setRequest(Request $request): void
+    {
+        $this->request = $request;
+    }
+
 }
