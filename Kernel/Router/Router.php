@@ -3,6 +3,7 @@
 namespace Kernel\Router;
 
 use Kernel\Controller\Controller;
+use Kernel\Http\Redirect;
 use Kernel\Http\Request;
 use Kernel\View\View;
 
@@ -15,7 +16,8 @@ class Router
 
     public function __construct(
         private  View $view,
-        private  Request $request
+        private  Request $request,
+        private Redirect $redirect,
     )
     {
         $this->initRoutes();
@@ -38,6 +40,8 @@ class Router
 
             call_user_func([$controller, 'setView'], $this->view);
             call_user_func([$controller, 'setRequest'], $this->request);
+            call_user_func([$controller, 'setRedirect'], $this->redirect);
+
             call_user_func([$controller, $action]);
         } else {
             call_user_func($route->getAction());

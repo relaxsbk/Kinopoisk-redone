@@ -12,6 +12,7 @@
     require_once APP_PATH . '/Kernel/Router/Router.php';
     require_once APP_PATH . '/Kernel/Router/Route.php';
     require_once APP_PATH . '/Kernel/Http/Request.php';
+    require_once APP_PATH . '/Kernel/Http/Redirect.php';
     require_once APP_PATH . '/Kernel/Container/Container.php';
     require_once APP_PATH . '/Kernel/View/View.php';
     require_once APP_PATH . '/Kernel/Validator/Validator.php';
