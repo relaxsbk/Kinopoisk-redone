@@ -10,14 +10,14 @@ class MovieController extends Controller
 {
     public function index(): void
     {
-        $view = new View();
+        $view = new View($this->session());
 
         $view->page('movies');
     }
 
     public function add(): void
     {
-        $view = new View();
+        $view = new View($this->session());
 
         $view->page('/admin/movies/add');
     }
@@ -29,9 +29,12 @@ class MovieController extends Controller
        ]);
 
        if (!$validation) {
+           foreach ($this->request()->errors() as $field => $errors) {
+               $this->session()->set($field, $errors);
+           }
+
            $this->redirect('/admin/movies/add');
-//           var_dump('Validation failed', $this->request()->errors());
-//           die();
+
        }
        die('Validation passed');
     }

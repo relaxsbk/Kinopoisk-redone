@@ -16,6 +16,7 @@
     require_once APP_PATH . '/Kernel/Container/Container.php';
     require_once APP_PATH . '/Kernel/View/View.php';
     require_once APP_PATH . '/Kernel/Validator/Validator.php';
+    require_once APP_PATH . '/Kernel/Session/Session.php';
 
     //Контроллеры
     require_once APP_PATH . '/src/Controllers/HomeController.php';
