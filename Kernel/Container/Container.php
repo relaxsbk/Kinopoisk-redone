@@ -3,22 +3,28 @@
 namespace Kernel\Container;
 
 use Kernel\Http\Redirect;
+use Kernel\Http\RedirectInterface;
 use Kernel\Http\Request;
+use Kernel\Http\RequestInterface;
 use Kernel\Router\Router;
+use Kernel\Router\RouterInterface;
 use Kernel\Session\Session;
+use Kernel\Session\SessionInterface;
 use Kernel\Validator\Validator;
+use Kernel\Validator\ValidatorInterface;
 use Kernel\View\View;
+use Kernel\View\ViewInterface;
 
 class Container
 {
-    public readonly Request $request;
+    public readonly RequestInterface $request;
 
-    public readonly Router $router;
+    public readonly RouterInterface $router;
 
-    public readonly View $view;
-    public readonly Validator $validator;
-    public readonly Redirect $redirect;
-    public readonly Session $session;
+    public readonly ViewInterface $view;
+    public readonly ValidatorInterface $validator;
+    public readonly RedirectInterface $redirect;
+    public readonly SessionInterface $session;
 
     public function __construct()
     {

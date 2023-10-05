@@ -4,11 +4,12 @@ namespace Kernel\View;
 
 use Kernel\Exceptions\ViewNotFoundException;
 use Kernel\Session\Session;
+use Kernel\Session\SessionInterface;
 
-class View
+class View implements ViewInterface
 {
 public function __construct(
-    private Session $session,
+    private SessionInterface $session,
 )
 {
 }
